@@ -5,18 +5,22 @@ import TaskGroup from './TaskGroup';
 const ThingsToDoPanel = props => (
   <div>
     <h3>Things To Do </h3>
-    {props.taskGroups.map(taskGroup => (
+    {props.taskGroups.map((taskGroup, i) => (
       <TaskGroup
+        key={taskGroup.name}
+        index={i}
         title={taskGroup.name}
         total={taskGroup.total}
-        numOfCompletedTask={taskGroup.numOfCompletedTask}
+        numOfCompletedTasks={taskGroup.numOfCompletedTasks}
+        updateActiveGroup={props.updateActiveGroup}
       />
     ))}
   </div>
 );
 
 ThingsToDoPanel.propTypes = {
-  taskGroups: PropTypes.arrayOf(PropTypes.object).isRequired
+  taskGroups: PropTypes.arrayOf(PropTypes.object).isRequired,
+  updateActiveGroup: PropTypes.func.isRequired,
 };
 
 export default ThingsToDoPanel;

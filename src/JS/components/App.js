@@ -1,17 +1,33 @@
 import React, { Component } from 'react';
-import logo from '../../SVGs/logo.svg';
+import ThingsToDoPanel from './ThingsToDoPanel';
+import exampleData from '../example';
+import { dataOrganizingFunc } from '../util';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = { 
+      taskGroups: dataOrganizingFunc(exampleData),
+      activeGroup: null, 
+    };
+    this.updateActiveGroup = this.updateActiveGroup.bind(this);
+  }
+
+  componentDidUpdate() {
+    console.log(this.state)
+  }
+
+  updateActiveGroup(group) {
+    this.setState({ activeGroup: group });
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="App container-fluid">
+        <ThingsToDoPanel
+          taskGroups={this.state.taskGroups}
+          updateActiveGroup={this.updateActiveGroup}
+        />
       </div>
     );
   }
