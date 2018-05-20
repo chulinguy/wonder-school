@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 import activeGroupReducer from './activeGroupReducer';
 import taskReducer from './taskReducer';
 
-const maindReducer = combineReducers({
+const mainReducer = combineReducers({
   activeGroupReducer,
   taskReducer
 });
 
-export default maindReducer;
+export default mainReducer;

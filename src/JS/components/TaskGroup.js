@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { changeGroup } from '../actions';
 import groupLogo from '../../SVGs/Group.svg';
 
 
 const TaskGroup = props => (
   <div
-    onClick={() => { props.updateActiveGroup(props.title); }}
-    onKeyPress={() => { props.updateActiveGroup(props.title); }}
+    onClick={() => { props.changeGroup(props.title); }}
+    onKeyPress={() => { props.changeGroup(props.title); }}
     role="menuitem"
     tabIndex={props.index}
   >
@@ -16,12 +18,16 @@ const TaskGroup = props => (
   </div>
 );
 
+const mapDispatchToProps = {
+  changeGroup
+};
+
 TaskGroup.propTypes = {
   index: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   total: PropTypes.number.isRequired,
   numOfCompletedTasks: PropTypes.number.isRequired,
-  updateActiveGroup: PropTypes.func.isRequired,
+  changeGroup: PropTypes.func.isRequired
 };
 
-export default TaskGroup;
+export default connect(null, mapDispatchToProps)(TaskGroup);

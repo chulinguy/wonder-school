@@ -12,3 +12,4 @@ export const changeGroup = value => ({
   type: 'GROUP_CHANGE',
   value
 });
+

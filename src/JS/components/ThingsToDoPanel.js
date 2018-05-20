@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import TaskGroup from './TaskGroup';
+import { dataOrganizingFunc } from '../util';
 
 const ThingsToDoPanel = props => (
   <div>
@@ -12,15 +14,17 @@ const ThingsToDoPanel = props => (
         title={taskGroup.name}
         total={taskGroup.total}
         numOfCompletedTasks={taskGroup.numOfCompletedTasks}
-        updateActiveGroup={props.updateActiveGroup}
       />
     ))}
   </div>
 );
 
+const mapStateToProps = state => ({
+  taskGroups: dataOrganizingFunc(state.taskReducer),
+});
+
 ThingsToDoPanel.propTypes = {
   taskGroups: PropTypes.arrayOf(PropTypes.object).isRequired,
-  updateActiveGroup: PropTypes.func.isRequired,
 };
 
-export default ThingsToDoPanel;
+export default connect(mapStateToProps)(ThingsToDoPanel);
