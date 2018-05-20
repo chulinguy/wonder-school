@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import ThingsToDoPanel from './ThingsToDoPanel';
+import TaskGroupPanel from './TaskGroupPanel';
 import exampleData from '../example';
 import { dataOrganizingFunc } from '../util';
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { 
+    this.state = {
       taskGroups: dataOrganizingFunc(exampleData),
-      activeGroup: null, 
+      activeGroup: '',
+      taskObjs: exampleData,
     };
     this.updateActiveGroup = this.updateActiveGroup.bind(this);
   }
 
   componentDidUpdate() {
-    console.log(this.state)
+    console.log(this.state);
   }
 
   updateActiveGroup(group) {
@@ -27,6 +29,10 @@ class App extends Component {
         <ThingsToDoPanel
           taskGroups={this.state.taskGroups}
           updateActiveGroup={this.updateActiveGroup}
+        />
+        <TaskGroupPanel
+          activeGroup={this.state.activeGroup}
+          taskObjs={this.state.taskObjs}
         />
       </div>
     );

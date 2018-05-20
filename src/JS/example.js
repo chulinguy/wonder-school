@@ -55,4 +55,4 @@ module.exports = [
     dependencyIds: [11],
     completedAt: null,
   }
-]
+];

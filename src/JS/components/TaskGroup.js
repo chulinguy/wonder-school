@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import groupLogo from '../../SVGs/Group.svg';
 
+
 const TaskGroup = props => (
   <div
     onClick={() => { props.updateActiveGroup(props.title); }}
     onKeyPress={() => { props.updateActiveGroup(props.title); }}
-    role="menuitem" 
+    role="menuitem"
     tabIndex={props.index}
   >
     <img src={groupLogo} className="Group-logo" alt="logo" />
