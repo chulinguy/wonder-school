@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import activeGroupReducer from './activeGroupReducer';
-import taskReducer from './taskReducer';
+import activeGroup from './activeGroupReducer';
+import tasks from './taskReducer';
 
 const mainReducer = combineReducers({
-  activeGroupReducer,
-  taskReducer
+  activeGroup,
+  tasks
 });
 
 export default mainReducer;

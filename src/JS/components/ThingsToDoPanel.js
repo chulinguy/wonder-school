@@ -19,8 +19,8 @@ const ThingsToDoPanel = props => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  taskGroups: dataOrganizingFunc(state.taskReducer),
+const mapStateToProps = ({ tasks }) => ({
+  taskGroups: dataOrganizingFunc(tasks),
 });
 
 ThingsToDoPanel.propTypes = {

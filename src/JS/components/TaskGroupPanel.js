@@ -11,14 +11,15 @@ const TaskGroupPanel = props => (
         name={taskObj.task}
         completedAt={taskObj.completedAt}
         id={taskObj.id}
+        key={taskObj.id}
       />
     ))}
   </div>
 );
 
-const mapStateToProps = state => ({
-  activeGroup: state.activeGroupReducer,
-  tasks: state.taskReducer
+const mapStateToProps = ({ activeGroup, tasks }) => ({
+  activeGroup,
+  tasks,
 });
 
 

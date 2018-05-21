@@ -5,7 +5,7 @@ import TaskGroupPanel from './TaskGroupPanel';
 const App = () => (
   <div className="App container-fluid">
     <ThingsToDoPanel />
-    {/* <TaskGroupPanel /> */}
+    <TaskGroupPanel />
   </div>
 );
 

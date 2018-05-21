@@ -4,19 +4,21 @@ import { connect } from 'react-redux';
 import { changeGroup } from '../actions';
 import groupLogo from '../../SVGs/Group.svg';
 
-
-const TaskGroup = props => (
-  <div
-    onClick={() => { props.changeGroup(props.title); }}
-    onKeyPress={() => { props.changeGroup(props.title); }}
-    role="menuitem"
-    tabIndex={props.index}
-  >
-    <img src={groupLogo} className="Group-logo" alt="logo" />
-    <h6>{props.title}</h6>
-    <p>{`${props.numOfCompletedTasks} of ${props.total} tasks complete`}</p>
-  </div>
-);
+const TaskGroup = props => {
+  const TGclickHandler = () => { props.changeGroup(props.title); };
+  return (
+    <div
+      onClick={TGclickHandler}
+      onKeyPress={TGclickHandler}
+      role="menuitem"
+      tabIndex={props.index}
+    >
+      <img src={groupLogo} className="taskGroup-logo" alt="logo" />
+      <h6>{props.title}</h6>
+      <p>{`${props.numOfCompletedTasks} of ${props.total} tasks complete`}</p>
+    </div>
+  );
+};
 
 const mapDispatchToProps = {
   changeGroup
