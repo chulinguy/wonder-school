@@ -1,4 +1,4 @@
-import exampleData from '../example';
+import exampleData from '../data/example';
 
 const taskReducer = (state = exampleData, action) => {
   const newState = state.slice();

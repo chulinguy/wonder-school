@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TaskGroup from './TaskGroup';
-import { dataOrganizingFunc } from '../util';
+import { taskGroupInfoMappingFunc } from '../util';
 
 const ThingsToDoPanel = props => (
   <div>
@@ -20,7 +20,7 @@ const ThingsToDoPanel = props => (
 );
 
 const mapStateToProps = ({ tasks }) => ({
-  taskGroups: dataOrganizingFunc(tasks),
+  taskGroups: taskGroupInfoMappingFunc(tasks),
 });
 
 ThingsToDoPanel.propTypes = {

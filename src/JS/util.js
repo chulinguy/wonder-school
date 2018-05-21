@@ -1,4 +1,4 @@
-export const dataOrganizingFunc = data => {
+export const taskGroupInfoMappingFunc = data => {
   const taskGroups = [];
   data.forEach(taskObj => {
     if (!taskGroups.filter(v => v.name === taskObj.group).length) {
