@@ -39,6 +39,12 @@ class Task extends Component {
     }
   }
 
+  textStyleChooser() {
+    if (this.lockCheck()) return { color: 'gray' };
+    else if (this.props.completedAt === null) return { textDecoration: 'none currentcolor solid' };
+    return { textDecoration: 'line-through' };
+  }
+
   render() {
     return (
       <div
@@ -46,13 +52,23 @@ class Task extends Component {
         onKeyPress={this.taskClickHandler}
         role="menuitem"
         tabIndex={this.props.id - 1}
+        className="row flex-parent task-div"
       >
-        <img
-          src={this.logoFunc()}
-          className="Task-logo"
-          alt="logo"
-        />
-        <p>{this.props.name}</p>
+        <div className="col-xs-3 flex-child">
+          <img
+            src={this.logoFunc()}
+            className="Task-logo vertical-center"
+            alt="logo"
+          />
+        </div>
+        <div className="col-xs-9">
+          <h6
+            className="bold-text vertical-center no-margin"
+            style={this.textStyleChooser()}
+          >
+            {this.props.name}
+          </h6>
+        </div>
       </div>
     );
   }

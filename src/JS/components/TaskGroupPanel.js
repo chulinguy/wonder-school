@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import Task from './Task';
 
 const TaskGroupPanel = props => (
-  <div>
-    <h3>Task Group</h3>
+  <div className="col-xs-6" id="task-group-panel">
+    <div id="task-group-heading">
+      <h3>Task Group</h3>
+    </div> 
     {props.tasks.filter(taskObj => taskObj.group === props.activeGroup).map(taskObj => (
       <Task
         name={taskObj.task}

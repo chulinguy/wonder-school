@@ -5,8 +5,10 @@ import TaskGroup from './TaskGroup';
 import { taskGroupInfoMappingFunc } from '../util';
 
 const ThingsToDoPanel = props => (
-  <div>
-    <h3>Things To Do </h3>
+  <div className="col-xs-6" id="things-to-do-panel">
+    <div id="things-to-do-heading">
+      <h3>Things To Do </h3>
+    </div>
     {props.taskGroups.map((taskGroup, i) => (
       <TaskGroup
         key={taskGroup.name}

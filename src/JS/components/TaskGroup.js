@@ -12,10 +12,17 @@ const TaskGroup = props => {
       onKeyPress={TGclickHandler}
       role="menuitem"
       tabIndex={props.index}
+      className="row flex-parent group-div"
     >
-      <img src={groupLogo} className="taskGroup-logo" alt="logo" />
-      <h6>{props.title}</h6>
-      <p>{`${props.numOfCompletedTasks} of ${props.total} tasks complete`}</p>
+      <div className="col-xs-3 flex-child">
+        <img src={groupLogo} className="taskGroup-logo vertical-center" alt="logo" />
+      </div>
+      <div className="col-xs-9">
+        <div className="drop-5px">
+          <h6 className="bold-text no-margin">{props.title}</h6>
+          <p className="gray-text">{`${props.numOfCompletedTasks} OF ${props.total} TASKS COMPLETE`}</p>
+        </div>
+      </div>
     </div>
   );
 };
