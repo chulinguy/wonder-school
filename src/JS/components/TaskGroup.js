@@ -14,10 +14,10 @@ const TaskGroup = props => {
       tabIndex={props.index}
       className="row flex-parent group-div"
     >
-      <div className="col-xs-3 flex-child">
+      <div className="col-xs-2 flex-child">
         <img src={groupLogo} className="taskGroup-logo vertical-center" alt="logo" />
       </div>
-      <div className="col-xs-9">
+      <div className="col-xs-10">
         <div className="drop-5px">
           <h6 className="bold-text no-margin">{props.title}</h6>
           <p className="gray-text">{`${props.numOfCompletedTasks} OF ${props.total} TASKS COMPLETE`}</p>

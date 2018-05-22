@@ -54,14 +54,14 @@ class Task extends Component {
         tabIndex={this.props.id - 1}
         className="row flex-parent task-div"
       >
-        <div className="col-xs-3 flex-child">
+        <div className="col-xs-2 flex-child">
           <img
             src={this.logoFunc()}
             className="Task-logo vertical-center"
             alt="logo"
           />
         </div>
-        <div className="col-xs-9">
+        <div className="col-xs-10">
           <h6
             className="bold-text vertical-center no-margin"
             style={this.textStyleChooser()}
