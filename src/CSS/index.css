@@ -51,8 +51,19 @@ body {
   margin: 0;
 }
 
+.group-div, .task-div, #all-group {
+  cursor: pointer;
+}
+
 
 #task-group-panel, #things-to-do-panel {
   padding: 10px;
+}
+
+#all-group {
+  position:relative;
+  float: right;
+  top: 40px;
+  color: skyblue;
 }
 
