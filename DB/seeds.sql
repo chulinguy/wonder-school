@@ -19,3 +19,9 @@ INSERT INTO task_dependencies (taskId, dependencyId) VALUES (6, 3);
 INSERT INTO task_dependencies (taskId, dependencyId) VALUES (6, 4);
 INSERT INTO task_dependencies (taskId, dependencyId) VALUES (7, 5);
 INSERT INTO task_dependencies (taskId, dependencyId) VALUES (7, 6);
+
+/* SELECT * FROM task_dependencies; */
+
+
+
+

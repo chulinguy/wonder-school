@@ -1,8 +1,8 @@
-import exampleData from '../data/example';
-
-const taskReducer = (state = exampleData, action) => {
+const taskReducer = (state = [], action) => {
   const newState = state.slice();
   switch (action.type) {
+    case 'LOAD_TASKS':
+      return action.value;
     case 'MARK_TASK_AS_COMPLETED':
       // console.log('marking reducer');
       newState[action.value - 1].completedAt = new Date();

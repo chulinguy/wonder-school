@@ -13,3 +13,8 @@ export const changeGroup = value => ({
   value
 });
 
+export const loadTasks = value => ({
+  type: 'LOAD_TASKS',
+  value
+});
+
