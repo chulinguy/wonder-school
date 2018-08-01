@@ -13,7 +13,8 @@ class App extends React.Component {
     fetch('http://localhost:3005/api')
       .then(res => res.json())
       .then(data => { 
-        this.props.loadTasks(data); 
+        if (data === 'error') alert('There is an error with the app\'s back end, please try again later')
+        else this.props.loadTasks(data); 
         this.setState({ loaded: true})
       });
   }

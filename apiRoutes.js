@@ -23,15 +23,18 @@ const api = app => {
     LEFT JOIN task_dependencies ON task_dependencies.taskId = tasks.id
     GROUP BY tasks.id`,
       (err, data) => {
-        const formattedJson = data.map(entry => {
-          let { completedAt, dependencyIds } = entry;
-          if (completedAt === '0000-00-00 00:00:00') completedAt = null;
-          if (dependencyIds === null) dependencyIds = [];
-          else dependencyIds = dependencyIds.split(',').map(str => parseInt(str, 10));
-          return { ...entry, completedAt, dependencyIds };
-        });
-        res.json(formattedJson);
-        // console.log('getting all tasks');
+        if (err) res.json('error');
+        else {
+          const formattedJson = data.map(entry => {
+            let { completedAt, dependencyIds } = entry;
+            if (completedAt === '0000-00-00 00:00:00') completedAt = null;
+            if (dependencyIds === null) dependencyIds = [];
+            else dependencyIds = dependencyIds.split(',').map(str => parseInt(str, 10));
+            return { ...entry, completedAt, dependencyIds };
+          });
+          res.json(formattedJson);
+          // console.log('getting all tasks');
+        }
       }
     );
   });
